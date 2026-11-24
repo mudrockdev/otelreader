@@ -1,6 +1,6 @@
 {
 	"name": "otelreader",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "A terminal viewer for OpenTelemetry traces, with a built-in OTLP/HTTP receiver",
 	"license": "GPL-3.0-or-later",
 	"author": "Ufuk Furkan Öztürk",
@@ -36,6 +36,7 @@
 		"dev": "bun --watch src/main.ts",
 		"start": "bun src/main.ts",
 		"test": "bun test",
+		"format": "bun format --write .",
 		"build:windows": "bun build.ts windows",
 		"build:linux": "bun build.ts linux",
 		"build:darwin": "bun build.ts darwin",
