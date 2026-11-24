@@ -31,3 +31,11 @@ bun run build:linux     # single executables in dist/
 bun run build:windows
 bun run build:darwin    # Apple Silicon; `bun run build:darwin x64` for Intel
 ```
+
+## License
+
+Copyright (C) 2026 Ufuk Furkan Öztürk
+
+This program is free software: you can redistribute it and/or modify it under the terms of the
+GNU General Public License as published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version. See [LICENSE](LICENSE).
