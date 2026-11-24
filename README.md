@@ -28,10 +28,10 @@ Point any OpenTelemetry SDK at it with `OTEL_EXPORTER_OTLP_ENDPOINT=http://local
 
 ## Keys
 
-| View | Keys |
-| --- | --- |
+| View       | Keys                                                                                                            |
+| ---------- | --------------------------------------------------------------------------------------------------------------- |
 | Trace list | `↑↓` select · `enter` open · `/` filter (span name, service, trace id) · `e` errors only · `c` clear · `q` quit |
-| Trace | `↑↓` move · `space` / `←→` fold · `tab` switch to details · `esc` back |
+| Trace      | `↑↓` move · `space` / `←→` fold · `tab` switch to details · `esc` back                                          |
 
 ## Development
 

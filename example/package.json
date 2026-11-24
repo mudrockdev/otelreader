@@ -1,37 +1,37 @@
 {
-	"name": "example",
-	"version": "0.0.1",
-	"private": true,
-	"type": "module",
-	"imports": {
-		"#lib": "./src/lib/index.js",
-		"#lib/*": "./src/lib/*"
-	},
-	"scripts": {
-		"dev": "bun --bun vite dev",
-		"build": "bun --bun vite build",
-		"start": "bun build/index.js",
-		"preview": "bun --bun vite preview",
-		"prepare": "svelte-kit sync || echo ''",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-node": "^6.0.5",
-		"@sveltejs/kit": "^3.2.0",
-		"@sveltejs/vite-plugin-svelte": "^7.3.1",
-		"svelte": "^5.57.3",
-		"svelte-check": "^4.7.8",
-		"typescript": "^6.0.3",
-		"vite": "^8.3.8"
-	},
-	"dependencies": {
-		"@opentelemetry/api": "^1.10.0",
-		"@opentelemetry/context-async-hooks": "^3.1.1",
-		"@opentelemetry/core": "^3.1.1",
-		"@opentelemetry/exporter-trace-otlp-proto": "^0.301.2",
-		"@opentelemetry/resources": "^3.1.1",
-		"@opentelemetry/sdk-trace": "^3.1.1",
-		"@opentelemetry/semantic-conventions": "^1.45.0"
-	}
+  "name": "example",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#lib": "./src/lib/index.js",
+    "#lib/*": "./src/lib/*"
+  },
+  "scripts": {
+    "dev": "bun --bun vite dev",
+    "build": "bun --bun vite build",
+    "start": "bun build/index.js",
+    "preview": "bun --bun vite preview",
+    "prepare": "svelte-kit sync || echo ''",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-node": "^6.0.5",
+    "@sveltejs/kit": "^3.2.0",
+    "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "svelte": "^5.57.3",
+    "svelte-check": "^4.7.8",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.8"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.10.0",
+    "@opentelemetry/context-async-hooks": "^3.1.1",
+    "@opentelemetry/core": "^3.1.1",
+    "@opentelemetry/exporter-trace-otlp-proto": "^0.301.2",
+    "@opentelemetry/resources": "^3.1.1",
+    "@opentelemetry/sdk-trace": "^3.1.1",
+    "@opentelemetry/semantic-conventions": "^1.45.0"
+  }
 }

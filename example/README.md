@@ -22,8 +22,8 @@ to change the service name (default `example-sveltekit`).
 
 ## Routes
 
-| Route | Trace |
-| --- | --- |
-| `/` | `load` → `db.query products`, `inventory.lookup` (a `fetch` to `/api/inventory`, nested in the same trace, with a cache span and sometimes a DB span), `pricing.compute` (with a span event) |
-| `/api/inventory?ids=1,2` | `+server` endpoint on its own |
-| `/boom` | a failing `payment.charge` span with a recorded exception, and a 502 |
+| Route                    | Trace                                                                                                                                                                                        |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`                      | `load` → `db.query products`, `inventory.lookup` (a `fetch` to `/api/inventory`, nested in the same trace, with a cache span and sometimes a DB span), `pricing.compute` (with a span event) |
+| `/api/inventory?ids=1,2` | `+server` endpoint on its own                                                                                                                                                                |
+| `/boom`                  | a failing `payment.charge` span with a recorded exception, and a 502                                                                                                                         |
