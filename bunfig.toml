@@ -1,0 +1,8 @@
+# compile .svelte files for the terminal
+preload = ["mudui/preload"]
+
+[install]
+minimumReleaseAge = "3d"
+
+[test]
+preload = ["mudui/preload"]

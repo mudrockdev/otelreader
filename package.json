@@ -1,0 +1,25 @@
+{
+	"name": "otelreader",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "bun --watch src/main.ts",
+		"start": "bun src/main.ts",
+		"test": "bun test",
+		"build:windows": "bun build.ts windows",
+		"build:linux": "bun build.ts linux",
+		"build:darwin": "bun build.ts darwin"
+	},
+	"dependencies": {
+		"mudui": "^0.1.0",
+		"svelte": "^5.59.0"
+	},
+	"devDependencies": {
+		"@opentelemetry/api": "^1.10.0",
+		"@opentelemetry/otlp-transformer": "^0.301.2",
+		"@opentelemetry/resources": "^3.1.1",
+		"@opentelemetry/sdk-trace": "^3.1.1",
+		"@types/bun": "^1.4.5"
+	}
+}
