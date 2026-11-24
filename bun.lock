@@ -10,7 +10,7 @@
         "@opentelemetry/resources": "^3.1.1",
         "@opentelemetry/sdk-trace": "^3.1.1",
         "@types/bun": "^1.4.5",
-        "mudui": "^0.1.0",
+        "mudui": "^0.2.0",
         "svelte": "^5.59.0",
       },
     },
@@ -72,7 +72,7 @@
 
     "magic-string": ["magic-string@0.30.21", "", { "dependencies": { "@jridgewell/sourcemap-codec": "^1.5.5" } }, "sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ=="],
 
-    "mudui": ["mudui@0.1.0", "", { "peerDependencies": { "svelte": "^5.59.0" } }, "sha512-VGLTJeA4yqS+SnkOynC5qJ8Ju8Dtm0XeFmFXNkFc+tWdU6KLnE22zRKFhvkWmqT9+j5iGbBs5C4Qld7t4R1Yeg=="],
+    "mudui": ["mudui@0.2.0", "", { "peerDependencies": { "svelte": "^5.59.0" } }, "sha512-9jU44RP1PcLvryh8r1pNGKdLPJ6zA72oYF0NITB6rXXrZaP8hNM1xhp8BMyCVaVg567wdPol5sdllhHsqMz4Cg=="],
 
     "svelte": ["svelte@5.59.1", "", { "dependencies": { "@jridgewell/remapping": "^2.3.5", "@jridgewell/sourcemap-codec": "^1.6.0", "@sveltejs/acorn-typescript": "^1.0.13", "@types/estree": "^1.0.9", "acorn": "^8.18.0", "aria-query": "5.3.1", "axobject-query": "^4.1.0", "clsx": "^2.1.1", "devalue": "^5.9.2", "esm-env": "^1.2.1", "esrap": "^2.4.2", "is-reference": "^3.0.3", "locate-character": "^3.0.0", "magic-string": "^0.30.11", "zimmerframe": "^1.1.2" } }, "sha512-ADG20W/jYSQut/79AavRRfbXQYebFKMVWT/xAbjVVZfZA4XzIoFfcpanEfYTyN+uWQUaPP+nstFx4qVKwEVnQQ=="],
 
