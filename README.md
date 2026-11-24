@@ -4,10 +4,23 @@ A terminal viewer for OpenTelemetry traces, built with [Svelte](https://svelte.d
 
 It runs an OTLP/HTTP receiver (protobuf or JSON, optionally gzipped) and shows traces as they arrive: a trace list, a span waterfall, and the attributes, events and resource of the selected span.
 
+## Install
+
+With [Bun](https://bun.sh) 1.4.5 or later:
+
 ```sh
-bun start                        # receive on http://localhost:4318/v1/traces
-bun start --port 4319            # another port
-bun start --no-receiver dump.json  # view OTLP/JSON (or JSONL, or protobuf) files
+bun i -g otelreader
+```
+
+Without Bun, download a single executable for your platform from the
+[releases](https://github.com/mudrockdev/otelreader/releases) (checksums in `SHA256SUMS`).
+
+## Usage
+
+```sh
+otelreader                          # receive on http://localhost:4318/v1/traces
+otelreader --port 4319              # another port
+otelreader --no-receiver dump.json  # view OTLP/JSON (or JSONL, or protobuf) files
 ```
 
 Point any OpenTelemetry SDK at it with `OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318`.
@@ -30,7 +43,21 @@ bun test        # test
 bun run build:linux     # single executables in dist/
 bun run build:windows
 bun run build:darwin    # Apple Silicon; `bun run build:darwin x64` for Intel
+bun run build:npm       # the npm package's CLI, dist/otelreader.js
 ```
+
+### Releasing
+
+Set `version` in `package.json` and commit, then:
+
+```sh
+bun publish                                 # npm: runs the tests and builds dist/otelreader.js first
+git tag v0.1.0 && git push origin v0.1.0    # GitHub: executables
+```
+
+On a `v*` tag, [`release.yml`](.github/workflows/release.yml) runs the tests and creates a GitHub release
+with executables for Linux, macOS and Windows. The tag must match `version` in `package.json`; a tag
+with a suffix (`v0.2.0-beta.1`) makes a pre-release.
 
 ## License
 

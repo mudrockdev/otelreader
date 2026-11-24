@@ -1,5 +1,6 @@
 import { parseArgs } from 'node:util';
 import { render } from 'mudui';
+import pkg from '../package.json' with { type: 'json' };
 import App from './App.svelte';
 import { decodeTracesJsonText } from './otlp/json.ts';
 import { decodeTracesProto } from './otlp/proto.ts';
@@ -20,6 +21,7 @@ Options:
       --host <host>   address to listen on (default: 0.0.0.0)
       --no-receiver   don't start the receiver (only view files)
       --limit <n>     keep at most n traces (default: 2000)
+  -v, --version       show the version
   -h, --help          show this help
 `;
 
@@ -32,12 +34,17 @@ const { values, positionals } = parseArgs({
 		host: { type: 'string', default: '0.0.0.0' },
 		receiver: { type: 'boolean', default: true },
 		limit: { type: 'string', default: '2000' },
-		help: { type: 'boolean', short: 'h' }
+		help: { type: 'boolean', short: 'h' },
+		version: { type: 'boolean', short: 'v' }
 	}
 });
 
 if (values.help) {
 	process.stdout.write(usage);
+	process.exit(0);
+}
+if (values.version) {
+	process.stdout.write(`${pkg.version}\n`);
 	process.exit(0);
 }
 

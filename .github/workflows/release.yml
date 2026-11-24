@@ -1,0 +1,64 @@
+# Push a tag like v0.1.0 (matching "version" in package.json) to create a GitHub release
+# with single executables for each platform. Tags with a pre-release suffix
+# (v0.2.0-beta.1) create a pre-release. The npm package is published by hand.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+env:
+  BUN_VERSION: 1.4.5
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: ${{ env.BUN_VERSION }}
+      - run: bun install --frozen-lockfile
+
+      - name: Check that the tag matches package.json
+        run: |
+          version=$(bun -p "require('./package.json').version")
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "::error::tag $GITHUB_REF_NAME does not match package.json version $version"
+            exit 1
+          fi
+
+      - run: bun test
+
+  binaries:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # create the release
+    steps:
+      - uses: actions/checkout@v7
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: ${{ env.BUN_VERSION }}
+      - run: bun install --frozen-lockfile
+
+      - name: Build executables
+        run: |
+          bun build.ts linux x64
+          bun build.ts linux arm64
+          bun build.ts windows x64
+          bun build.ts darwin arm64
+          bun build.ts darwin x64
+          cd dist && sha256sum otelreader-* > SHA256SUMS
+
+      - name: Create the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          flags=()
+          if [[ "$GITHUB_REF_NAME" == *-* ]]; then flags+=(--prerelease); fi
+          gh release create "$GITHUB_REF_NAME" dist/otelreader-* dist/SHA256SUMS \
+            --title "$GITHUB_REF_NAME" --generate-notes --verify-tag "${flags[@]}"
